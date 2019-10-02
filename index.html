@@ -34,44 +34,47 @@
         .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
             width: 100%;
         }
+        .w72{
+            width:72px;
+        }
 
-.tooltipf {
-  position: relative;
-  display: inline-block;
-}
+        .tooltipf {
+            position: relative;
+            display: inline-block;
+        }
 
-.tooltipf .tooltiptext {
-  visibility: hidden;
-  width: 140px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -75px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+        .tooltipf .tooltiptext {
+            visibility: hidden;
+            width: 140px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -75px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
 
-.tooltipf .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
+        .tooltipf .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
 
-.tooltipf:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
+        .tooltipf:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 
     <title>Guild war info tool</title>
@@ -84,13 +87,170 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <div style="display: flex;justify-content: space-between;">
-                    <div class="form-inline">
-                        <div class="form-group" style="margin-right:20px;margin-bottom:20px">
-                            <label for="you_speed_1" style="margin-right:20px;">Your 100% CR unit speed</label>
-                            <input id="you_speed_1" name="you_speed_1" type="number" min="0" class="form-control" style="width:80px" />
-                        </div>
+                <div style="display: flex;justify-content: center;align-items: center;" class="mb-3">
+                    <div style="width:240px;margin-right:15px">
+                        <select id="your_unit" class="selectpicker" title="Your 100% CR hero" data-live-search="true">
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/achates/icon.png' /><span>Achates</span>">Achates</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/adlay/icon.png' /><span>Adlay</span>">Adlay</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/aither/icon.png' /><span>Aither</span>">Aither</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/alexa/icon.png' /><span>Alexa</span>">Alexa</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/angelica/icon.png' /><span>Angelica</span>">Angelica</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/angelic-montmorancy/icon.png' /><span>Angelic Montmorancy</span>">Angelic Montmorancy</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/apocalypse-ravi/icon.png' /><span>Apocalypse Ravi</span>">Apocalypse Ravi</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/aramintha/icon.png' /><span>Aramintha</span>">Aramintha</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/arbiter-vildred/icon.png' /><span>Arbiter Vildred</span>">Arbiter Vildred</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/armin/icon.png' /><span>Armin</span>">Armin</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/arowell/icon.png' /><span>Arowell</span>">Arowell</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/assassin-cartuja/icon.png' /><span>Assassin Cartuja</span>">Assassin Cartuja</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/assassin-cidd/icon.png' /><span>Assassin Cidd</span>">Assassin Cidd</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/assassin-coli/icon.png' /><span>Assassin Coli</span>">Assassin Coli</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/auxiliary-lots/icon.png' /><span>Auxiliary Lots</span>">Auxiliary Lots</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/azalea/icon.png' /><span>Azalea</span>">Azalea</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/baal-sezan/icon.png' /><span>Baal Sezan</span>">Baal Sezan</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/baiken/icon.png' /><span>Baiken</span>">Baiken</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/basar/icon.png' /><span>Basar</span>">Basar</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/bask/icon.png' /><span>Bask</span>">Bask</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/bellona/icon.png' /><span>Bellona</span>">Bellona</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/blaze-dingo/icon.png' /><span>Blaze Dingo</span>">Blaze Dingo</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/blood-blade-karin/icon.png' /><span>Blood Blade Karin</span>">Blood Blade Karin</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/butcher-corps-inquisitor/icon.png' /><span>Butcher Corps Inquisitor</span>">Butcher Corps Inquisitor</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/captain-rikoris/icon.png' /><span>Captain Rikoris</span>">Captain Rikoris</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/carmainerose/icon.png' /><span>Carmainerose</span>">Carmainerose</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/carrot/icon.png' /><span>Carrot</span>">Carrot</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/cartuja/icon.png' /><span>Cartuja</span>">Cartuja</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/cecilia/icon.png' /><span>Cecilia</span>">Cecilia</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/celeste/icon.png' /><span>Celeste</span>">Celeste</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/celestial-mercedes/icon.png' /><span>Celestial Mercedes</span>">Celestial Mercedes</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/cermia/icon.png' /><span>Cermia</span>">Cermia</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/challenger-dominiel/icon.png' /><span>Challenger Dominiel</span>">Challenger Dominiel</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/champion-zerato/icon.png' /><span>Champion Zerato</span>">Champion Zerato</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/chaos-inquisitor/icon.png' /><span>Chaos Inquisitor</span>">Chaos Inquisitor</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/chaos-sect-axe/icon.png' /><span>Chaos Sect Axe</span>">Chaos Sect Axe</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/charles/icon.png' /><span>Charles</span>">Charles</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/charlotte/icon.png' /><span>Charlotte</span>">Charlotte</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/chloe/icon.png' /><span>Chloe</span>">Chloe</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/church-of-ilryos-axe/icon.png' /><span>Church Of Ilryos Axe</span>">Church Of Ilryos Axe</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/cidd/icon.png' /><span>Cidd</span>">Cidd</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/clarissa/icon.png' /><span>Clarissa</span>">Clarissa</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/coli/icon.png' /><span>Coli</span>">Coli</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/commander-lorina/icon.png' /><span>Commander Lorina</span>">Commander Lorina</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/corvus/icon.png' /><span>Corvus</span>">Corvus</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/crescent-moon-rin/icon.png' /><span>Crescent Moon Rin</span>">Crescent Moon Rin</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/crimson-armin/icon.png' /><span>Crimson Armin</span>">Crimson Armin</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/crozet/icon.png' /><span>Crozet</span>">Crozet</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/dark-corvus/icon.png' /><span>Dark Corvus</span>">Dark Corvus</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/desert-jewel-basar/icon.png' /><span>Desert Jewel Basar</span>">Desert Jewel Basar</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/destina/icon.png' /><span>Destina</span>">Destina</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/diene/icon.png' /><span>Diene</span>">Diene</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/dingo/icon.png' /><span>Dingo</span>">Dingo</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/dizzy/icon.png' /><span>Dizzy</span>">Dizzy</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/dominiel/icon.png' /><span>Dominiel</span>">Dominiel</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/doris/icon.png' /><span>Doris</span>">Doris</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/elson/icon.png' /><span>Elson</span>">Elson</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/enott/icon.png' /><span>Enott</span>">Enott</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/falconer-kluri/icon.png' /><span>Falconer Kluri</span>">Falconer Kluri</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/fallen-cecilia/icon.png' /><span>Fallen Cecilia</span>">Fallen Cecilia</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/fighter-maya/icon.png' /><span>Fighter Maya</span>">Fighter Maya</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/furious/icon.png' /><span>Furious</span>">Furious</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/general-purrgis/icon.png' /><span>General Purrgis</span>">General Purrgis</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/gloomyrain/icon.png' /><span>Gloomyrain</span>">Gloomyrain</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/guider-aither/icon.png' /><span>Guider Aither</span>">Guider Aither</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/gunther/icon.png' /><span>Gunther</span>">Gunther</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/haste/icon.png' /><span>Haste</span>">Haste</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/hazel/icon.png' /><span>Hazel</span>">Hazel</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/helga/icon.png' /><span>Helga</span>">Helga</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/hurado/icon.png' /><span>Hurado</span>">Hurado</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/iseria/icon.png' /><span>Iseria</span>">Iseria</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/jecht/icon.png' /><span>Jecht</span>">Jecht</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/jena/icon.png' /><span>Jena</span>">Jena</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/judge-kise/icon.png' /><span>Judge Kise</span>">Judge Kise</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/judith/icon.png' /><span>Judith</span>">Judith</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/karin/icon.png' /><span>Karin</span>">Karin</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/kayron/icon.png' /><span>Kayron</span>">Kayron</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/ken/icon.png' /><span>Ken</span>">Ken</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/khawazu/icon.png' /><span>Khawazu</span>">Khawazu</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/kikirat-v2/icon.png' /><span>Kikirat V2</span>">Kikirat V2</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/kiris/icon.png' /><span>Kiris</span>">Kiris</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/kise/icon.png' /><span>Kise</span>">Kise</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/kitty-clarissa/icon.png' /><span>Kitty Clarissa</span>">Kitty Clarissa</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/kluri/icon.png' /><span>Kluri</span>">Kluri</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/krau/icon.png' /><span>Krau</span>">Krau</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/leo/icon.png' /><span>Leo</span>">Leo</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/lidica/icon.png' /><span>Lidica</span>">Lidica</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/lilias/icon.png' /><span>Lilias</span>">Lilias</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/lilibet/icon.png' /><span>Lilibet</span>">Lilibet</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/lorina/icon.png' /><span>Lorina</span>">Lorina</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/lots/icon.png' /><span>Lots</span>">Lots</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/ludwig/icon.png' /><span>Ludwig</span>">Ludwig</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/luluca/icon.png' /><span>Luluca</span>">Luluca</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/luna/icon.png' /><span>Luna</span>">Luna</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/maid-chloe/icon.png' /><span>Maid Chloe</span>">Maid Chloe</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/martial-artist-ken/icon.png' /><span>Martial Artist Ken</span>">Martial Artist Ken</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/mascot-hazel/icon.png' /><span>Mascot Hazel</span>">Mascot Hazel</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/maya/icon.png' /><span>Maya</span>">Maya</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/mercedes/icon.png' /><span>Mercedes</span>">Mercedes</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/mirsa/icon.png' /><span>Mirsa</span>">Mirsa</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/mistychain/icon.png' /><span>Mistychain</span>">Mistychain</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/montmorancy/icon.png' /><span>Montmorancy</span>">Montmorancy</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/mucacha/icon.png' /><span>Mucacha</span>">Mucacha</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/nemunas/icon.png' /><span>Nemunas</span>">Nemunas</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/otillie/icon.png' /><span>Otillie</span>">Otillie</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/pearlhorizon/icon.png' /><span>Pearlhorizon</span>">Pearlhorizon</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/purrgis/icon.png' /><span>Purrgis</span>">Purrgis</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/pyllis/icon.png' /><span>Pyllis</span>">Pyllis</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/ras/icon.png' /><span>Ras</span>">Ras</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/ravi/icon.png' /><span>Ravi</span>">Ravi</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/requiemroar/icon.png' /><span>Requiemroar</span>">Requiemroar</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/researcher-carrot/icon.png' /><span>Researcher Carrot</span>">Researcher Carrot</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/righteous-thief-roozid/icon.png' /><span>Righteous Thief Roozid</span>">Righteous Thief Roozid</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/rikoris/icon.png' /><span>Rikoris</span>">Rikoris</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/rima/icon.png' /><span>Rima</span>">Rima</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/rin/icon.png' /><span>Rin</span>">Rin</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/roaming-warrior-leo/icon.png' /><span>Roaming Warrior Leo</span>">Roaming Warrior Leo</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/romann/icon.png' /><span>Romann</span>">Romann</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/roozid/icon.png' /><span>Roozid</span>">Roozid</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/rose/icon.png' /><span>Rose</span>">Rose</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/ruele-of-light/icon.png' /><span>Ruele Of Light</span>">Ruele Of Light</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/sage-baal-sezan/icon.png' /><span>Sage Baal Sezan</span>">Sage Baal Sezan</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/schuri/icon.png' /><span>Schuri</span>">Schuri</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/seaside-bellona/icon.png' /><span>Seaside Bellona</span>">Seaside Bellona</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/serila/icon.png' /><span>Serila</span>">Serila</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/sez/icon.png' /><span>Sez</span>">Sez</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/shadow-rose/icon.png' /><span>Shadow Rose</span>">Shadow Rose</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/shooting-star-achates/icon.png' /><span>Shooting Star Achates</span>">Shooting Star Achates</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/sigret/icon.png' /><span>Sigret</span>">Sigret</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/silk/icon.png' /><span>Silk</span>">Silk</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/silver-blade-aramintha/icon.png' /><span>Silver Blade Aramintha</span>">Silver Blade Aramintha</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/sol/icon.png' /><span>Sol</span>">Sol</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/specimen-sez/icon.png' /><span>Specimen Sez</span>">Specimen Sez</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/specter-tenebria/icon.png' /><span>Specter Tenebria</span>">Specter Tenebria</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/surin/icon.png' /><span>Surin</span>">Surin</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/sven/icon.png' /><span>Sven</span>">Sven</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/tamarinne/icon.png' /><span>Tamarinne</span>">Tamarinne</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/taranor-guard/icon.png' /><span>Taranor Guard</span>">Taranor Guard</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/taranor-royal-guard/icon.png' /><span>Taranor Royal Guard</span>">Taranor Royal Guard</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/tenebria/icon.png' /><span>Tenebria</span>">Tenebria</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/tieria/icon.png' /><span>Tieria</span>">Tieria</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/tywin/icon.png' /><span>Tywin</span>">Tywin</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/vildred/icon.png' /><span>Vildred</span>">Vildred</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/violet/icon.png' /><span>Violet</span>">Violet</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/vivian/icon.png' /><span>Vivian</span>">Vivian</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/wanda/icon.png' /><span>Wanda</span>">Wanda</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/wanderer-silk/icon.png' /><span>Wanderer Silk</span>">Wanderer Silk</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/watcher-schuri/icon.png' /><span>Watcher Schuri</span>">Watcher Schuri</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/yufine/icon.png' /><span>Yufine</span>">Yufine</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/yuna/icon.png' /><span>Yuna</span>">Yuna</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/zeno/icon.png' /><span>Zeno</span>">Zeno</option>
+                                <option data-content="<img class='hero-icon' src='https://assets.epicsevendb.com/hero/zerato/icon.png' /><span>Zerato</span>">Zerato</option>                            
+                        </select>
                     </div>
+                    <div class="input-group" style="width:150px" >
+                        <input id="you_speed_1" name="you_speed_1" type="number" min="0" class="form-control" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">Speed</span>
+                        </div>   
+                    </div>
+                    <div style="flex:1"></div>
                     <a href="./" class="btn btn-outline-secondary" style="height: 38px;">Refresh</a>
                 </div>
             </div>
@@ -372,7 +532,7 @@
                         <div class="input-group">
                             <input id="enemy_cr_1" type="number" min="0" max="100" class="form-control" />
                             <div class="input-group-append">
-                                <span class="input-group-text">% CR</span>
+                                <span class="input-group-text w72">% CR</span>
                             </div>                            
                         </div>
                     </div>
@@ -383,7 +543,7 @@
                             <div class="input-group">
                                 <span id="enemy_speed_1" class="form-control">—</span>
                                 <div class="input-group-append">
-                                    <span class="input-group-text">Speed</span>
+                                    <span class="input-group-text w72">Speed</span>
                                 </div>                            
                             </div>
                     </div>
@@ -664,7 +824,7 @@
                             <div class="input-group">
                                 <input id="enemy_cr_2" type="number" min="0" max="100" class="form-control" />
                                 <div class="input-group-append">
-                                    <span class="input-group-text">% CR</span>
+                                    <span class="input-group-text w72">% CR</span>
                                 </div>                            
                             </div>
                         </div>
@@ -675,7 +835,7 @@
                                 <div class="input-group">
                                     <span id="enemy_speed_2" class="form-control">—</span>
                                     <div class="input-group-append">
-                                        <span class="input-group-text">Speed</span>
+                                        <span class="input-group-text w72">Speed</span>
                                     </div>                            
                                 </div>
                         </div>
@@ -956,7 +1116,7 @@
                                 <div class="input-group">
                                     <input id="enemy_cr_3" type="number" min="0" max="100" class="form-control" />
                                     <div class="input-group-append">
-                                        <span class="input-group-text">% CR</span>
+                                        <span class="input-group-text w72">% CR</span>
                                     </div>                            
                                 </div>
                             </div>
@@ -967,7 +1127,7 @@
                                     <div class="input-group">
                                         <span id="enemy_speed_3" class="form-control">—</span>
                                         <div class="input-group-append">
-                                            <span class="input-group-text">Speed</span>
+                                            <span class="input-group-text w72">Speed</span>
                                         </div>                            
                                     </div>
                             </div>
@@ -996,6 +1156,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
     <script>
         function refresh_result(){
+            if($("#you_speed_1").val() != ""){
+                if($("#enemy_cr_1").val() != "")
+                    $("#enemy_speed_1").html(Math.ceil($("#you_speed_1").val()/100*$("#enemy_cr_1").val()));
+                if($("#enemy_cr_2").val() != "")
+                    $("#enemy_speed_2").html(Math.ceil($("#you_speed_1").val()/100*$("#enemy_cr_2").val()));
+                if($("#enemy_cr_3").val() != "")
+                    $("#enemy_speed_3").html(Math.ceil($("#you_speed_1").val()/100*$("#enemy_cr_3").val()));
+            }else{
+                $("#enemy_speed_1").html("—");
+                $("#enemy_speed_2").html("—");
+                $("#enemy_speed_3").html("—");
+            }
+
             $("#result_text").empty();
             var r = "";
 
@@ -1029,25 +1202,18 @@
 
         $(function(){
             $('.selectpicker').selectpicker();
+
             $("input[type=number]").on("change", function(){
-                if($("#you_speed_1").val() != ""){
-                    if($("#enemy_cr_1").val() != "")
-                        $("#enemy_speed_1").html(Math.ceil($("#you_speed_1").val()/100*$("#enemy_cr_1").val()));
-                    if($("#enemy_cr_2").val() != "")
-                        $("#enemy_speed_2").html(Math.ceil($("#you_speed_1").val()/100*$("#enemy_cr_2").val()));
-                    if($("#enemy_cr_3").val() != "")
-                        $("#enemy_speed_3").html(Math.ceil($("#you_speed_1").val()/100*$("#enemy_cr_3").val()));
-                }
                 refresh_result();
             })
+
             $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-                /*var t = $(this).data("target");
-                if(t != undefined && t != ""){
-                    var target = $("#"+t);
-                    target.html($(e.currentTarget).find("option:selected").data("content"));
-                }*/
+                if($(this).attr("id") == "your_unit"){
+                    $("#you_speed_1").val(localStorage.getItem($("#your_unit").val()));
+                }
                 refresh_result();
             });
+
             $(".enemy_hp").on("change", function(e){
                 var v = $(this).val();
                 var t = $(this).data("target");
@@ -1057,10 +1223,16 @@
                 }
                 refresh_result();
             })
+
             $(".enemy_info").on("change", function(e){
                 refresh_result();
             })
+
             $("#you_speed_1").on("change", function(e){
+                var your_unit = $("#your_unit").val();
+                var your_speed = $("#you_speed_1").val();
+                if(your_unit != "")
+                    localStorage.setItem(your_unit, your_speed);
                 refresh_result();
             })
         })
