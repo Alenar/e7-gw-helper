@@ -75,11 +75,58 @@
             visibility: visible;
             opacity: 1;
         }
+
+        body.dark-theme{
+            background:#2f3136;
+            color: #d7dadc;
+        }
+        body.dark-theme .list-group-item{
+            background:#36393f;
+        }
+        body.dark-theme .btn-light{
+            background:#393c43;
+            border-color:#444951;
+            color:#d7dadc;
+        }
+        body.dark-theme .form-control{
+            border: 1px solid #444951;
+            background: transparent;
+            color:#d7dadc;
+        }
+        body.dark-theme .hero-icon{
+            border:2px solid #444951;
+        }
+        body.dark-theme .input-group-text {
+            background: #363a40;
+            color: #8a8d93;
+            border: 1px solid #444951;
+        }
+        body.dark-theme .btn-outline-secondary {
+            color: #f5f5f5;
+            background-color: #393c43;
+            /*border-color: #393c43;*/
+        }
+        body.dark-theme .btn-outline-secondary:hover {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        body.dark-theme .dropdown-menu{
+            color:#fff;
+            background:#40444b;
+        }
+        body.dark-theme .dropdown-item{
+            color:#f5f5f5;
+        }
+        body.dark-theme .dropdown-item:focus, .dropdown-item:hover {
+            color: #f5f5f5;
+            background-color: #6c757d;
+        }
     </style>
 
     <title>Guild war info tool</title>
   </head>
-  <body>
+  <body class="dark-theme">
     <div class="container" style="margin-top:50px;">
         <h1 class="text-center">Guild war info tool</h1>
 
@@ -251,7 +298,14 @@
                         </div>   
                     </div>
                     <div style="flex:1"></div>
-                    <a href="./" class="btn btn-outline-secondary mb-2" style="height: 38px;">Refresh</a>
+                    <div class="btn-group mb-2" role="group" style="height: 38px;">
+                        <a href="./" class="btn btn-outline-secondary">Refresh</a>
+                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Theme</button>
+                        <div class="dropdown-menu">
+                            <a id="dark_theme_btn" class="dropdown-item" href="#">Dark</a>
+                            <a id="light_theme_btn" class="dropdown-item" href="#">Light</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1201,6 +1255,22 @@
         }
 
         $(function(){
+
+            if(localStorage.getItem("theme") != "dark")
+                $("body").removeClass("dark-theme");
+
+            $("#dark_theme_btn").on("click", function(e){
+                e.preventDefault();
+                localStorage.setItem("theme", "dark");
+                $("body").addClass("dark-theme");
+            })
+
+            $("#light_theme_btn").on("click", function(e){
+                e.preventDefault();
+                localStorage.setItem("theme", "light");
+                $("body").removeClass("dark-theme");
+            })            
+
             $('.selectpicker').selectpicker();
 
             $("input[type=number]").on("change", function(){
