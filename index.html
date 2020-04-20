@@ -1,41 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 
     <style>
-        .hero-icon{
-            height:24px;
-            width:24px;
-            border:2px solid #000;
-            border-radius:50%;
-            margin-right:10px;
-            background:#fff;
+        .hero-icon {
+            height: 24px;
+            width: 24px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: #fff;
         }
-        .arti-icon{
-            height:24px;
-            width:auto;
-            margin-right:10px;
+
+        .arti-icon {
+            height: 24px;
+            width: auto;
+            margin-right: 10px;
         }
-        .table-enemy .hero-icon{
-            border-color:red;
+
+        .table-enemy .hero-icon {
+            border-color: red;
         }
-        input[type=number]{
-            width:90px;
+
+        input[type=number] {
+            width: 90px;
         }
-        .table span{
+
+        .table span {
             line-height: 36px;
         }
+
         .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
             width: 100%;
         }
-        .w72{
-            width:72px;
+
+        .w72 {
+            width: 72px;
         }
 
         .tooltipf {
@@ -76,48 +84,58 @@
             opacity: 1;
         }
 
-        body.dark-theme{
-            background:#2f3136;
+        body.dark-theme {
+            background: #2f3136;
             color: #d7dadc;
         }
-        body.dark-theme .list-group-item{
-            background:#36393f;
+
+        body.dark-theme .list-group-item {
+            background: #36393f;
         }
-        body.dark-theme .btn-light{
-            background:#393c43;
-            border-color:#444951;
-            color:#d7dadc;
+
+        body.dark-theme .btn-light {
+            background: #393c43;
+            border-color: #444951;
+            color: #d7dadc;
         }
-        body.dark-theme .form-control{
+
+        body.dark-theme .form-control {
             border: 1px solid #444951;
             background: transparent;
-            color:#d7dadc;
+            color: #d7dadc;
         }
-        body.dark-theme .hero-icon{
-            border:2px solid #444951;
+
+        body.dark-theme .hero-icon {
+            border: 2px solid #444951;
         }
+
         body.dark-theme .input-group-text {
             background: #363a40;
             color: #ccc;
             border: 1px solid #444951;
         }
+
         body.dark-theme .btn-outline-secondary {
             color: #f5f5f5;
             background-color: #393c43;
             /*border-color: #393c43;*/
         }
+
         body.dark-theme .btn-outline-secondary:hover {
             color: #fff;
             background-color: #6c757d;
             border-color: #6c757d;
         }
-        body.dark-theme .dropdown-menu{
-            color:#fff;
-            background:#40444b;
+
+        body.dark-theme .dropdown-menu {
+            color: #fff;
+            background: #40444b;
         }
-        body.dark-theme .dropdown-item{
-            color:#f5f5f5;
+
+        body.dark-theme .dropdown-item {
+            color: #f5f5f5;
         }
+
         body.dark-theme .dropdown-item:focus, .dropdown-item:hover {
             color: #f5f5f5;
             background-color: #6c757d;
@@ -125,288 +143,307 @@
     </style>
 
     <title>Guild war info tool</title>
-  </head>
-  <body class="dark-theme">
-    <div class="container" style="margin-top:50px;">
-        <h1 class="text-center">Guild war info tool</h1>
+</head>
+<body class="dark-theme">
+<div class="container" style="margin-top:50px;">
+    <h1 class="text-center">Guild war info tool</h1>
 
-        <hr />
+    <hr/>
 
-        <div class="row">
-            <div class="col-sm-12">
-                <div style="display: flex;flex-wrap:wrap;align-items:flex-start">
-                    <div class="input-group mb-2" style="width:300px">
-                        <input id="you_speed_1" name="you_speed_1" type="number" min="0" class="form-control" />
-                        <div class="input-group-append">
-                            <span class="input-group-text">Your 100% CR hero Speed</span>
-                        </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div style="display: flex;flex-wrap:wrap;align-items:flex-start">
+                <div class="input-group mb-2" style="width:300px">
+                    <input id="you_speed_1" name="you_speed_1" type="number" min="0" class="form-control"/>
+                    <div class="input-group-append">
+                        <span class="input-group-text">Your 100% CR hero Speed</span>
                     </div>
-                    <div style="flex:1"></div>
-                    <div class="btn-group mb-2" role="group" style="height: 38px;">
-                        <a href="./" class="btn btn-outline-secondary">Refresh</a>
-                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Theme</button>
-                        <div class="dropdown-menu">
-                            <a id="dark_theme_btn" class="dropdown-item" href="#">Dark</a>
-                            <a id="light_theme_btn" class="dropdown-item" href="#">Light</a>
-                        </div>
+                </div>
+                <div style="flex:1"></div>
+                <div class="btn-group mb-2" role="group" style="height: 38px;">
+                    <a href="./" class="btn btn-outline-secondary">Refresh</a>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                        Theme
+                    </button>
+                    <div class="dropdown-menu">
+                        <a id="dark_theme_btn" class="dropdown-item" href="#">Dark</a>
+                        <a id="light_theme_btn" class="dropdown-item" href="#">Light</a>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="list-group">
-            <div class="list-group-item">
-                <div class="row">
-                    <div class="col-sm-4" style="margin-bottom:10px">
-                            <select id="enemy_unit_1" title="Select a hero" class="selectpicker heroes-picker" data-target="r_enemy_unit_1" data-live-search="true">
-                            </select>
-                    </div>
-                    <div class="col-sm-4" style="margin-bottom:10px">
-                            <select id="enemy_arti_1" title="Select an Artifact" data-target="r_enemy_arti_1" class="selectpicker artifact-picker" data-live-search="true">
-                            </select>
-                    </div>
-                    <div class="col-sm-2 col-6" style="margin-bottom:10px">
-                        <div class="input-group">
-                                <input id="enemy_hp_1" data-target="r_enemy_hp_1" type="text" class="form-control enemy_hp" />
-                            <div class="input-group-append">
-                                <span class="input-group-text">HP</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-2 col-6" style="margin-bottom:10px">
-                        <div class="input-group">
-                            <input id="enemy_cr_1" type="number" min="0" max="100" class="form-control" />
-                            <div class="input-group-append">
-                                <span class="input-group-text w72">% CR</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-10 col-6">
-                        <input id="enemy_info_1" type="text" class="form-control enemy_info" placeholder="Additional info..." />
-                    </div>
-                    <div class="col-sm-2 col-6">
-                            <div class="input-group">
-                                <span id="enemy_speed_1" class="form-control">—</span>
-                                <div class="input-group-append">
-                                    <span class="input-group-text w72">Speed</span>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-group-item">
-                    <div class="row">
-                        <div class="col-sm-4" style="margin-bottom:10px">
-                                <select id="enemy_unit_2" title="Select a hero" class="selectpicker heroes-picker" data-target="r_enemy_unit_2" data-live-search="true">
-                                </select>
-                        </div>
-                        <div class="col-sm-4" style="margin-bottom:10px">
-                                <select id="enemy_arti_2" title="Select an Artifact" data-target="r_enemy_arti_2" class="selectpicker artifact-picker" data-live-search="true">
-                                </select>
-                        </div>
-                        <div class="col-sm-2 col-6" style="margin-bottom:10px">
-                            <div class="input-group">
-                                    <input id="enemy_hp_2" data-target="r_enemy_hp_2" type="text" class="form-control enemy_hp" />
-                                <div class="input-group-append">
-                                    <span class="input-group-text">HP</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-2 col-6" style="margin-bottom:10px">
-                            <div class="input-group">
-                                <input id="enemy_cr_2" type="number" min="0" max="100" class="form-control" />
-                                <div class="input-group-append">
-                                    <span class="input-group-text w72">% CR</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-10 col-6">
-                            <input id="enemy_info_2" type="text" class="form-control enemy_info" placeholder="Additional info..." />
-                        </div>
-                        <div class="col-sm-2 col-6">
-                                <div class="input-group">
-                                    <span id="enemy_speed_2" class="form-control">—</span>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text w72">Speed</span>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="list-group-item">
-                        <div class="row">
-                            <div class="col-sm-4" style="margin-bottom:10px">
-                                    <select id="enemy_unit_3" title="Select a hero" class="selectpicker heroes-picker" data-target="r_enemy_unit_3" data-live-search="true">
-                                    </select>
-                            </div>
-                            <div class="col-sm-4" style="margin-bottom:10px">
-                                    <select id="enemy_arti_3" title="Select an Artifact" data-target="r_enemy_arti_3" class="selectpicker artifact-picker" data-live-search="true">
-                                    </select>
-                            </div>
-                            <div class="col-sm-2 col-6" style="margin-bottom:10px">
-                                <div class="input-group">
-                                        <input id="enemy_hp_3" data-target="r_enemy_hp_3" type="text" class="form-control enemy_hp" />
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">HP</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-2 col-6" style="margin-bottom:10px">
-                                <div class="input-group">
-                                    <input id="enemy_cr_3" type="number" min="0" max="100" class="form-control" />
-                                    <div class="input-group-append">
-                                        <span class="input-group-text w72">% CR</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-10 col-6">
-                                <input id="enemy_info_3" type="text" class="form-control enemy_info" placeholder="Additional info..." />
-                            </div>
-                            <div class="col-sm-2 col-6">
-                                    <div class="input-group">
-                                        <span id="enemy_speed_3" class="form-control">—</span>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text w72">Speed</span>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-        </div>
-        <br>
-        <div>
-            <div style="display: flex;justify-content: space-between;">
-                <h2>Result</h2>
-                <div class="tooltipf">
-                    <button class="btn btn-outline-secondary" onclick="copyToClipboard()" onmouseout="outFunc()"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span>Copy text</button>
-                </div>
-            </div>
-            <textarea id="result_text" class="form-control" style="min-height:120px;"></textarea>
-        </div>
-        <br>
-        <hr>
-        <br>
     </div>
 
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
-    <script>
+    <div class="list-group">
+        <div class="list-group-item">
+            <div class="row">
+                <div class="col-sm-4" style="margin-bottom:10px">
+                    <select id="enemy_unit_1" title="Select a hero" class="selectpicker heroes-picker"
+                            data-target="r_enemy_unit_1" data-live-search="true">
+                    </select>
+                </div>
+                <div class="col-sm-4" style="margin-bottom:10px">
+                    <select id="enemy_arti_1" title="Select an Artifact" data-target="r_enemy_arti_1"
+                            class="selectpicker artifact-picker" data-live-search="true">
+                    </select>
+                </div>
+                <div class="col-sm-2 col-6" style="margin-bottom:10px">
+                    <div class="input-group">
+                        <input id="enemy_hp_1" data-target="r_enemy_hp_1" type="text" class="form-control enemy_hp"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text">HP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-6" style="margin-bottom:10px">
+                    <div class="input-group">
+                        <input id="enemy_cr_1" type="number" min="0" max="100" class="form-control"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text w72">% CR</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-6">
+                    <input id="enemy_info_1" type="text" class="form-control enemy_info"
+                           placeholder="Additional info..."/>
+                </div>
+                <div class="col-sm-2 col-6">
+                    <div class="input-group">
+                        <span id="enemy_speed_1" class="form-control">—</span>
+                        <div class="input-group-append">
+                            <span class="input-group-text w72">Speed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list-group-item">
+            <div class="row">
+                <div class="col-sm-4" style="margin-bottom:10px">
+                    <select id="enemy_unit_2" title="Select a hero" class="selectpicker heroes-picker"
+                            data-target="r_enemy_unit_2" data-live-search="true">
+                    </select>
+                </div>
+                <div class="col-sm-4" style="margin-bottom:10px">
+                    <select id="enemy_arti_2" title="Select an Artifact" data-target="r_enemy_arti_2"
+                            class="selectpicker artifact-picker" data-live-search="true">
+                    </select>
+                </div>
+                <div class="col-sm-2 col-6" style="margin-bottom:10px">
+                    <div class="input-group">
+                        <input id="enemy_hp_2" data-target="r_enemy_hp_2" type="text" class="form-control enemy_hp"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text">HP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-6" style="margin-bottom:10px">
+                    <div class="input-group">
+                        <input id="enemy_cr_2" type="number" min="0" max="100" class="form-control"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text w72">% CR</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-6">
+                    <input id="enemy_info_2" type="text" class="form-control enemy_info"
+                           placeholder="Additional info..."/>
+                </div>
+                <div class="col-sm-2 col-6">
+                    <div class="input-group">
+                        <span id="enemy_speed_2" class="form-control">—</span>
+                        <div class="input-group-append">
+                            <span class="input-group-text w72">Speed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list-group-item">
+            <div class="row">
+                <div class="col-sm-4" style="margin-bottom:10px">
+                    <select id="enemy_unit_3" title="Select a hero" class="selectpicker heroes-picker"
+                            data-target="r_enemy_unit_3" data-live-search="true">
+                    </select>
+                </div>
+                <div class="col-sm-4" style="margin-bottom:10px">
+                    <select id="enemy_arti_3" title="Select an Artifact" data-target="r_enemy_arti_3"
+                            class="selectpicker artifact-picker" data-live-search="true">
+                    </select>
+                </div>
+                <div class="col-sm-2 col-6" style="margin-bottom:10px">
+                    <div class="input-group">
+                        <input id="enemy_hp_3" data-target="r_enemy_hp_3" type="text" class="form-control enemy_hp"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text">HP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-6" style="margin-bottom:10px">
+                    <div class="input-group">
+                        <input id="enemy_cr_3" type="number" min="0" max="100" class="form-control"/>
+                        <div class="input-group-append">
+                            <span class="input-group-text w72">% CR</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-6">
+                    <input id="enemy_info_3" type="text" class="form-control enemy_info"
+                           placeholder="Additional info..."/>
+                </div>
+                <div class="col-sm-2 col-6">
+                    <div class="input-group">
+                        <span id="enemy_speed_3" class="form-control">—</span>
+                        <div class="input-group-append">
+                            <span class="input-group-text w72">Speed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div>
+        <div style="display: flex;justify-content: space-between;">
+            <h2>Result</h2>
+            <div class="tooltipf">
+                <button class="btn btn-outline-secondary" onclick="copyToClipboard()" onmouseout="outFunc()"><span
+                        class="tooltiptext" id="myTooltip">Copy to clipboard</span>Copy text
+                </button>
+            </div>
+        </div>
+        <textarea id="result_text" class="form-control" style="min-height:120px;"></textarea>
+    </div>
+    <br>
+    <hr>
+    <br>
+</div>
 
-        function refresh_result(){
-            if($("#you_speed_1").val() != ""){
-                if($("#enemy_cr_1").val() != "")
-                    $("#enemy_speed_1").html(Math.ceil($("#you_speed_1").val()/100*$("#enemy_cr_1").val()));
-                if($("#enemy_cr_2").val() != "")
-                    $("#enemy_speed_2").html(Math.ceil($("#you_speed_1").val()/100*$("#enemy_cr_2").val()));
-                if($("#enemy_cr_3").val() != "")
-                    $("#enemy_speed_3").html(Math.ceil($("#you_speed_1").val()/100*$("#enemy_cr_3").val()));
-            }else{
-                $("#enemy_speed_1").html("—");
-                $("#enemy_speed_2").html("—");
-                $("#enemy_speed_3").html("—");
-            }
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+<script>
 
-            $("#result_text").empty();
-            var r = "";
-
-            var e1 = $("#enemy_unit_1").val();
-            var hp1 = $("#enemy_hp_1").val() != "" ? " - " + $("#enemy_hp_1").val() + " HP" : "";
-            var a1 = $("#enemy_arti_1").val() != "" ? " - " + $("#enemy_arti_1").val() : "";
-            var s1 = $("#enemy_speed_1").text() != "—" ? " - " + $("#enemy_speed_1").text() + " speed" : "";
-            var i1 = $("#enemy_info_1").val() != "" ? " - " + $("#enemy_info_1").val() : "";
-
-            var e2 = $("#enemy_unit_2").val();
-            var hp2 = $("#enemy_hp_2").val() != "" ? " - " + $("#enemy_hp_2").val() + " HP" : "";
-            var a2 = $("#enemy_arti_2").val() != "" ? " - " + $("#enemy_arti_2").val() : "";
-            var s2 = $("#enemy_speed_2").text() != "—" ? " - " + $("#enemy_speed_2").text() + " speed" : "";
-            var i2 = $("#enemy_info_2").val() != "" ? " - " + $("#enemy_info_2").val() : "";
-
-            var e3 = $("#enemy_unit_3").val();
-            var hp3 = $("#enemy_hp_3").val() != "" ? " - " + $("#enemy_hp_3").val() + " HP" : "";
-            var a3 = $("#enemy_arti_3").val() != "" ? " - " + $("#enemy_arti_3").val() : "";
-            var s3 = $("#enemy_speed_3").text() != "—" ? " - " + $("#enemy_speed_3").text() + " speed" : "";
-            var i3 = $("#enemy_info_3").val() != "" ? " - " + $("#enemy_info_3").val() : "";
-
-            if(e1 != "")
-                r += e1 + s1 + hp1 + a1 + i1 + "\r\n";
-            if(e2 != "")
-                r += e2 + s2 + hp2 + a2 + i2 + "\r\n";
-            if(e3 != "")
-                r += e3 + s3 + hp3 + a3 + i3;
-
-            $("#result_text").html(r);
+    function refresh_result() {
+        if ($("#you_speed_1").val() != "") {
+            if ($("#enemy_cr_1").val() != "")
+                $("#enemy_speed_1").html(Math.ceil($("#you_speed_1").val() / 100 * $("#enemy_cr_1").val()));
+            if ($("#enemy_cr_2").val() != "")
+                $("#enemy_speed_2").html(Math.ceil($("#you_speed_1").val() / 100 * $("#enemy_cr_2").val()));
+            if ($("#enemy_cr_3").val() != "")
+                $("#enemy_speed_3").html(Math.ceil($("#you_speed_1").val() / 100 * $("#enemy_cr_3").val()));
+        } else {
+            $("#enemy_speed_1").html("—");
+            $("#enemy_speed_2").html("—");
+            $("#enemy_speed_3").html("—");
         }
 
-        $(function(){
+        $("#result_text").empty();
+        var r = "";
 
-            if(localStorage.getItem("theme") == "light")
-                $("body").removeClass("dark-theme");
+        var e1 = $("#enemy_unit_1").val();
+        var hp1 = $("#enemy_hp_1").val() != "" ? " - " + $("#enemy_hp_1").val() + " HP" : "";
+        var a1 = $("#enemy_arti_1").val() != "" ? " - " + $("#enemy_arti_1").val() : "";
+        var s1 = $("#enemy_speed_1").text() != "—" ? " - " + $("#enemy_speed_1").text() + " speed" : "";
+        var i1 = $("#enemy_info_1").val() != "" ? " - " + $("#enemy_info_1").val() : "";
 
-            $("#dark_theme_btn").on("click", function(e){
-                e.preventDefault();
-                localStorage.setItem("theme", "dark");
-                $("body").addClass("dark-theme");
-            })
+        var e2 = $("#enemy_unit_2").val();
+        var hp2 = $("#enemy_hp_2").val() != "" ? " - " + $("#enemy_hp_2").val() + " HP" : "";
+        var a2 = $("#enemy_arti_2").val() != "" ? " - " + $("#enemy_arti_2").val() : "";
+        var s2 = $("#enemy_speed_2").text() != "—" ? " - " + $("#enemy_speed_2").text() + " speed" : "";
+        var i2 = $("#enemy_info_2").val() != "" ? " - " + $("#enemy_info_2").val() : "";
 
-            $("#light_theme_btn").on("click", function(e){
-                e.preventDefault();
-                localStorage.setItem("theme", "light");
-                $("body").removeClass("dark-theme");
-            })
+        var e3 = $("#enemy_unit_3").val();
+        var hp3 = $("#enemy_hp_3").val() != "" ? " - " + $("#enemy_hp_3").val() + " HP" : "";
+        var a3 = $("#enemy_arti_3").val() != "" ? " - " + $("#enemy_arti_3").val() : "";
+        var s3 = $("#enemy_speed_3").text() != "—" ? " - " + $("#enemy_speed_3").text() + " speed" : "";
+        var i3 = $("#enemy_info_3").val() != "" ? " - " + $("#enemy_info_3").val() : "";
 
-            $('.selectpicker').selectpicker();
+        if (e1 != "")
+            r += e1 + s1 + hp1 + a1 + i1 + "\r\n";
+        if (e2 != "")
+            r += e2 + s2 + hp2 + a2 + i2 + "\r\n";
+        if (e3 != "")
+            r += e3 + s3 + hp3 + a3 + i3;
 
-            $("input[type=number]").on("change", function(){
-                refresh_result();
-            })
+        $("#result_text").html(r);
+    }
 
-            $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-                if($(this).attr("id") == "your_unit"){
-                    $("#you_speed_1").val(localStorage.getItem($("#your_unit").val()));
-                }
-                refresh_result();
-            });
+    $(function () {
 
-            $(".enemy_hp").on("change", function(e){
-                var v = $(this).val();
-                var t = $(this).data("target");
-                if(t != undefined && t != ""){
-                    var target = $("#"+t);
-                    target.html(v != "" ? v + " HP" : "—");
-                }
-                refresh_result();
-            })
+        if (localStorage.getItem("theme") == "light")
+            $("body").removeClass("dark-theme");
 
-            $(".enemy_info").on("change", function(e){
-                refresh_result();
-            })
-
-            $("#you_speed_1").on("change", function(e){
-                var your_unit = $("#your_unit").val();
-                var your_speed = $("#you_speed_1").val();
-                if(your_unit != "")
-                    localStorage.setItem(your_unit, your_speed);
-                refresh_result();
-            })
+        $("#dark_theme_btn").on("click", function (e) {
+            e.preventDefault();
+            localStorage.setItem("theme", "dark");
+            $("body").addClass("dark-theme");
         })
 
-        function copyToClipboard() {
-            var copyText = document.getElementById("result_text");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            document.execCommand("copy");
+        $("#light_theme_btn").on("click", function (e) {
+            e.preventDefault();
+            localStorage.setItem("theme", "light");
+            $("body").removeClass("dark-theme");
+        })
 
-            var tooltip = document.getElementById("myTooltip");
-            tooltip.innerHTML = "Copied!";
-        }
+        $('.selectpicker').selectpicker();
 
-        function outFunc() {
-            var tooltip = document.getElementById("myTooltip");
-            tooltip.innerHTML = "Copy to clipboard";
-        }
-    </script>
-  </body>
+        $("input[type=number]").on("change", function () {
+            refresh_result();
+        })
+
+        $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+            if ($(this).attr("id") == "your_unit") {
+                $("#you_speed_1").val(localStorage.getItem($("#your_unit").val()));
+            }
+            refresh_result();
+        });
+
+        $(".enemy_hp").on("change", function (e) {
+            var v = $(this).val();
+            var t = $(this).data("target");
+            if (t != undefined && t != "") {
+                var target = $("#" + t);
+                target.html(v != "" ? v + " HP" : "—");
+            }
+            refresh_result();
+        })
+
+        $(".enemy_info").on("change", function (e) {
+            refresh_result();
+        })
+
+        $("#you_speed_1").on("change", function (e) {
+            var your_unit = $("#your_unit").val();
+            var your_speed = $("#you_speed_1").val();
+            if (your_unit != "")
+                localStorage.setItem(your_unit, your_speed);
+            refresh_result();
+        })
+    })
+
+    function copyToClipboard() {
+        var copyText = document.getElementById("result_text");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "Copied!";
+    }
+
+    function outFunc() {
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "Copy to clipboard";
+    }
+</script>
+</body>
 </html>
