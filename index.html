@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
     <style>
         .hero-icon {
@@ -140,6 +138,14 @@
             color: #f5f5f5;
             background-color: #6c757d;
         }
+        
+        /*
+        Hack to avoid seeing the duplicate options created outside the selects when filling the artifacts
+        & heroes selects with the api values.
+         */
+        div > option {
+            display: none;
+        }
     </style>
 
     <title>Guild war info tool</title>
@@ -153,10 +159,14 @@
     <div class="row">
         <div class="col-sm-12">
             <div style="display: flex;flex-wrap:wrap;align-items:flex-start">
-                <div class="input-group mb-2" style="width:300px">
+                <div style="width:240px;margin-right:15px;" class="mb-2">
+                    <select id="your_unit" class="heroes-picker" title="Your 100% CR hero" data-live-search="true">
+                    </select>
+                </div>
+                <div class="input-group mb-2" style="width:150px">
                     <input id="you_speed_1" name="you_speed_1" type="number" min="0" class="form-control"/>
                     <div class="input-group-append">
-                        <span class="input-group-text">Your 100% CR hero Speed</span>
+                        <span class="input-group-text">Speed</span>
                     </div>
                 </div>
                 <div style="flex:1"></div>
@@ -178,13 +188,13 @@
         <div class="list-group-item">
             <div class="row">
                 <div class="col-sm-4" style="margin-bottom:10px">
-                    <select id="enemy_unit_1" title="Select a hero" class="selectpicker heroes-picker"
+                    <select id="enemy_unit_1" title="Select a hero" class="heroes-picker"
                             data-target="r_enemy_unit_1" data-live-search="true">
                     </select>
                 </div>
                 <div class="col-sm-4" style="margin-bottom:10px">
                     <select id="enemy_arti_1" title="Select an Artifact" data-target="r_enemy_arti_1"
-                            class="selectpicker artifact-picker" data-live-search="true">
+                            class="artifact-picker" data-live-search="true">
                     </select>
                 </div>
                 <div class="col-sm-2 col-6" style="margin-bottom:10px">
@@ -220,13 +230,13 @@
         <div class="list-group-item">
             <div class="row">
                 <div class="col-sm-4" style="margin-bottom:10px">
-                    <select id="enemy_unit_2" title="Select a hero" class="selectpicker heroes-picker"
+                    <select id="enemy_unit_2" title="Select a hero" class="heroes-picker"
                             data-target="r_enemy_unit_2" data-live-search="true">
                     </select>
                 </div>
                 <div class="col-sm-4" style="margin-bottom:10px">
                     <select id="enemy_arti_2" title="Select an Artifact" data-target="r_enemy_arti_2"
-                            class="selectpicker artifact-picker" data-live-search="true">
+                            class="artifact-picker" data-live-search="true">
                     </select>
                 </div>
                 <div class="col-sm-2 col-6" style="margin-bottom:10px">
@@ -262,13 +272,13 @@
         <div class="list-group-item">
             <div class="row">
                 <div class="col-sm-4" style="margin-bottom:10px">
-                    <select id="enemy_unit_3" title="Select a hero" class="selectpicker heroes-picker"
+                    <select id="enemy_unit_3" title="Select a hero" class="heroes-picker"
                             data-target="r_enemy_unit_3" data-live-search="true">
                     </select>
                 </div>
                 <div class="col-sm-4" style="margin-bottom:10px">
                     <select id="enemy_arti_3" title="Select an Artifact" data-target="r_enemy_arti_3"
-                            class="selectpicker artifact-picker" data-live-search="true">
+                            class="artifact-picker" data-live-search="true">
                     </select>
                 </div>
                 <div class="col-sm-2 col-6" style="margin-bottom:10px">
@@ -320,18 +330,96 @@
 </div>
 
 <!-- JavaScript -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
-<script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
+<script>
+    class GameItem {
+        constructor(name, iconUrl) {
+            this._name = name;
+            this._iconUrl = iconUrl;
+            this._iconClass = "";
+        }
+        
+        get iconUrl() {
+            return this._iconUrl;
+        }
+
+        get name() {
+            return this._name;
+        }
+        
+        get iconClass() {
+            return this._iconClass;
+        }
+    }
+    
+    class HeroItem extends GameItem {
+        constructor(name, iconUrl) {
+            super(name, iconUrl);
+            this._iconClass = "hero-icon";
+        }
+    }
+    
+    class ArtifactItem extends GameItem {
+        constructor(name, iconUrl) {
+            super(name, iconUrl);
+            this._iconClass = "arti-icon";
+        }
+    }
+    
+    function addGameItemToSelect(select, gameItem) {
+        const option = document.createElement("option");
+        option.textContent = gameItem.name;
+
+        const iconSpan = document.createElement("span");
+        iconSpan.textContent = gameItem.name;
+
+        const icon = document.createElement("img");
+        icon.className = gameItem.iconClass;
+        icon.src = gameItem.iconUrl;
+
+        option.dataset.content = icon.outerHTML.replace(/["]/g, "'") + iconSpan.outerHTML;
+        
+        select.appendChild(option);
+    }
+    
+    function fillSelectsWithGameItems(selectsClassName, gameItems) {
+        let selects = document.getElementsByClassName(selectsClassName);
+
+        for (let gameItem of gameItems) {
+            for (let select of selects) {
+                addGameItemToSelect(select, gameItem);
+            }
+        }
+    }
+    
+    async function fillHeroes() {
+        let response = await fetch("https://api.epicsevendb.com/hero/")
+        let apiResult = await response.json();
+
+        let heroes =
+            apiResult.results
+                .filter(hero => !!hero.attribute && hero.attribute !== "none")
+                .map(hero => new HeroItem(hero.name, hero.assets.icon));
+        
+        fillSelectsWithGameItems("heroes-picker", heroes);
+    }
+
+    async function fillArtifacts() {
+        let response = await fetch("https://api.epicsevendb.com/artifact/")
+        let apiResult = await response.json();
+
+        let artifacts =
+            apiResult.results
+                .filter(artifact => !!artifact.role )
+                .map(gameItem => new ArtifactItem(gameItem.name, gameItem.assets.icon));
+        
+        fillSelectsWithGameItems("artifact-picker", artifacts);
+    }
+        
     function refresh_result() {
         if ($("#you_speed_1").val() != "") {
             if ($("#enemy_cr_1").val() != "")
@@ -378,7 +466,6 @@
     }
 
     $(function () {
-
         if (localStorage.getItem("theme") == "light")
             $("body").removeClass("dark-theme");
 
@@ -394,18 +481,28 @@
             $("body").removeClass("dark-theme");
         })
 
-        $('.selectpicker').selectpicker();
+        $('.heroes-picker, .artifact-picker').selectpicker();
 
-        $("input[type=number]").on("change", function () {
-            refresh_result();
-        })
-
-        $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-            if ($(this).attr("id") == "your_unit") {
+        $('.heroes-picker, .artifact-picker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+            if ($(this).attr("id") === "your_unit") {
                 $("#you_speed_1").val(localStorage.getItem($("#your_unit").val()));
             }
             refresh_result();
         });
+        
+        fillHeroes()
+            .then(function () { return fillArtifacts(); })
+            .then(function () {
+                $('.heroes-picker, .artifact-picker').selectpicker('refresh');
+ 
+                // Hack to remove the duplicate options created outside the selects when filling the artifacts
+                // & heroes selects with the api values.
+                $('div > option').remove();
+            });
+
+        $("input[type=number]").on("change", function () {
+            refresh_result();
+        })
 
         $(".enemy_hp").on("change", function (e) {
             var v = $(this).val();
